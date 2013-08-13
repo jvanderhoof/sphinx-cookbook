@@ -73,7 +73,7 @@ if configure_flags.nil?
   configure_flags = [
     "--prefix=#{node[:sphinx][:install_path]}",
     node[:sphinx][:use_stemmer] ? '--with-libstemmer' : '--without-libstemmer',
-    node[:sphinx][:use_mysql] ? '--with-mysql' : '--without-mysql',
+    node[:sphinx][:use_mysql] or node[:sphinx][:use_percona] ? '--with-mysql' : '--without-mysql',
     node[:sphinx][:use_postgres] ? '--with-pgsql' : '--without-pgsql'
   ]
 end
