@@ -61,3 +61,8 @@ bash "Build and Install Sphinx Search" do
   #  && system("#{node[:sphinx][:install_path]}/bin/ree-version | grep -q '#{node[:sphinx][:version]}$'")
 end
 
+link "/usr/bin/searchd" do
+  action :create
+  to "#{node[:sphinx][:install_path]}/bin/searchd"
+end
+
